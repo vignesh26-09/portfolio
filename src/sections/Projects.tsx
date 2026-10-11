@@ -3,20 +3,16 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Code2, Film } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import {
-  AlgoVisualizerPreview,
   DevForgePreview,
   PulseMetricsPreview,
-  AetheriaPreview,
 } from '../components/ProjectVisuals';
 
 type Project = (typeof PROJECTS)[number];
 
 const renderVisual = (id: string) => {
   switch (id) {
-    case 'algovisualizer': return <AlgoVisualizerPreview />;
-    case 'devforge': return <DevForgePreview />;
-    case 'pulsemetrics': return <PulseMetricsPreview />;
-    case 'aetheria': return <AetheriaPreview />;
+    case 'carelink': return <DevForgePreview />;
+    case 'tourism-reputation': return <PulseMetricsPreview />;
     default: return null;
   }
 };
@@ -30,13 +26,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
   return (
     <div className="min-h-screen flex items-center py-16 sm:py-24">
-      <motion.article ref={cardRef} style={{ opacity, y, scale }} className="w-full rounded-3xl glass-surface p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+      <motion.article ref={cardRef} style={{ opacity, y, scale }} className="group w-full rounded-3xl glass-surface p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-white/10 ring-1 ring-transparent shadow-[0_20px_80px_rgba(0,0,0,0.8)] backdrop-blur-2xl transition-[box-shadow,ring-color,border-color] duration-500 hover:border-[#ff8a50]/70 hover:ring-[#ff8a50]/55 hover:shadow-[0_0_24px_rgba(255,138,80,0.32),0_24px_90px_rgba(0,0,0,0.86)]">
         <div className="absolute top-0 left-0 right-0 h-2 flex justify-between px-4 opacity-25">
           {Array.from({ length: 24 }).map((_, i) => <span key={i} className="w-2 h-1 bg-white" />)}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center transition-transform duration-500 ease-out group-hover:-translate-y-1">
           <div className="lg:col-span-7 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">{renderVisual(project.id)}</div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.025]">{renderVisual(project.id)}</div>
             <div className="mt-2.5 flex items-center justify-between text-[11px] font-mono text-slate-500 px-1">
               <span>TAKE // {project.builtYear}</span><span className="text-slate-400">FPS: 60 · STABLE</span>
             </div>
