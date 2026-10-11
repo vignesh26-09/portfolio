@@ -21,21 +21,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick }) => {
     <div className="relative min-h-screen w-full flex flex-col justify-end px-6 sm:px-10 md:px-12 lg:px-16 pb-12 sm:pb-16 pt-24 z-20 pointer-events-none">
       <motion.div
         style={{ y: heroSlideY, scale: heroScale, opacity: heroOpacity }}
-        className="w-full max-w-xl md:max-w-2xl pointer-events-auto md:ml-[22vw] lg:ml-[20vw] origin-bottom-left"
+        className="w-full max-w-xl md:max-w-2xl pointer-events-auto origin-bottom-left"
       >
-        {/* Eyebrow badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-6"
-        >
-          <span className="w-1.5 h-1.5 bg-[#ff8a50] rounded-none inline-block shadow-[0_0_6px_#ff8a50]" />
-          <span className="text-[11px] font-mono tracking-widest text-slate-300 uppercase">
-            BUILDING DIGITAL WORLDS
-          </span>
-        </motion.div>
-
         {/* Main Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

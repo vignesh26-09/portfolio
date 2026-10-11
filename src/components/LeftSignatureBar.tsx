@@ -13,7 +13,7 @@ export const LeftSignatureBar = () => {
       className="fixed top-6 right-6 z-30 pointer-events-none hidden md:block"
     >
       <TypewriterText
-        phrases={['VIGNESH S', 'THE VIBE CODER', 'PANTOMATH', 'TECH NERD']}
+        phrases={['VIGNESH S', 'FULL STACK DEVELOPER', 'AI ENTHUSIAST']}
         typingSpeed={110}
         pauseDuration={3200}
         deletingSpeed={45}
