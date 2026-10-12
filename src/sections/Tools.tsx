@@ -1,115 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TOOL_GROUPS } from '../data/portfolioData';
 
-export const Tools: React.FC = () => {
-  const [toolsExpanded, setToolsExpanded] = useState(false);
-  return (
-    <section id="tools" className="relative py-28 sm:py-36 px-6 sm:px-12 md:px-16 max-w-6xl mx-auto z-20">
-      {/* Section Header */}
-      <div className="mb-20 sm:mb-24">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-1.5 h-1.5 bg-[#ff8a50] rounded-none inline-block shadow-[0_0_6px_#ff8a50]" />
-          <span className="text-xs font-mono tracking-widest text-[#ff8a50] uppercase">
-            02 / INVENTORY
-          </span>
-          <span className="h-[1px] w-12 bg-white/10" />
-        </div>
+const hexClip = 'polygon(25% 3%, 75% 3%, 98% 50%, 75% 97%, 25% 97%, 2% 50%)';
 
-        <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.1]">
-          Tools I reach for.
-        </h2>
+export const Tools: React.FC = () => (
+  <section id="tools" className="relative py-28 sm:py-36 px-6 sm:px-12 md:px-16 max-w-7xl mx-auto z-20 overflow-hidden">
+    <div className="absolute inset-x-0 top-1/4 h-96 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.09),transparent_70%)] pointer-events-none" />
 
-        <p className="mt-3 text-xs font-mono text-slate-400/80 max-w-md">
-          /* a quiet inventory of languages, frameworks, and daily utilities */
-        </p>
+    <div className="relative mb-16 sm:mb-20 text-center max-w-2xl mx-auto">
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#38bdf8]" />
+        <span className="w-1.5 h-1.5 bg-[#ff8a50] shadow-[0_0_8px_#ff8a50]" />
+        <span className="text-xs font-mono tracking-widest text-[#ff8a50] uppercase">02 / TOOLKIT</span>
+        <span className="w-1.5 h-1.5 bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" />
+        <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#38bdf8]" />
       </div>
+      <h2 className="font-['Chakra_Petch'] text-4xl sm:text-6xl font-semibold tracking-[-0.04em] text-white leading-none">Tools in my stack.</h2>
+      <p className="mt-4 text-sm font-mono text-slate-400">Hover or tap a tile to bring the puzzle to life.</p>
+    </div>
 
-      {/* Typographic Columns / Clean Text Rows (Rule 08: No cards, no scores, no stars) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-        {TOOL_GROUPS.map((group, gIdx) => (
+    <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-2 gap-y-[-12px] sm:gap-x-4">
+      {TOOL_GROUPS.flatMap((group, groupIndex) => group.items.map((item, itemIndex) => {
+        const isOrange = (groupIndex + itemIndex) % 2 === 0;
+        const offset = (groupIndex * group.items.length + itemIndex) % 2 === 1;
+        const accent = isOrange ? '#ff8a50' : '#38bdf8';
+
+        return (
           <motion.div
-            key={group.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: gIdx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className={`space-y-4 ${gIdx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+            key={item}
+            initial={{ opacity: 0, y: 44, scale: 0.84 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            whileHover={{ scale: 1.1, y: -9, rotate: isOrange ? -1.5 : 1.5, zIndex: 20 }}
+            whileTap={{ scale: 1.05 }}
+            viewport={{ once: true, amount: 0.16 }}
+            transition={{ duration: 0.45, delay: (groupIndex * 0.08) + (itemIndex * 0.035), ease: [0.16, 1, 0.3, 1] }}
+            className={`relative aspect-square -mb-7 sm:-mb-10 cursor-default ${offset ? 'translate-y-7 sm:translate-y-10' : ''}`}
           >
-            {/* Group Label */}
-            <div className="flex items-center gap-2 pb-3 border-b border-white/[0.08]">
-              <span className="text-[10px] font-mono text-[#ff8a50] font-semibold">
-                0{gIdx + 1}
-              </span>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-slate-300 font-medium">
-                {group.label}
-              </h3>
+            <div
+              style={{ clipPath: hexClip, borderColor: `${accent}88` }}
+              className="absolute inset-0 border bg-[#09121f]/95 p-4 sm:p-5 flex flex-col justify-between overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_32px_rgba(56,189,248,0.28)]"
+            >
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: `radial-gradient(circle at 50% 25%, ${accent}35, transparent 56%)` }} />
+              <div className="relative flex items-center justify-between text-[8px] sm:text-[9px] font-mono tracking-widest" style={{ color: accent }}>
+                <span>0{groupIndex + 1}</span><span>◈</span>
+              </div>
+              <div className="relative text-center">
+                <p className="font-['Chakra_Petch'] text-sm sm:text-base font-semibold leading-tight text-white">{item}</p>
+                <p className="mt-1 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.13em] text-slate-500">{group.label}</p>
+              </div>
+              <div className="relative h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }} />
             </div>
-
-            {gIdx === 2 ? (
-              <button
-                type="button"
-                onClick={() => setToolsExpanded((expanded) => !expanded)}
-                aria-expanded={toolsExpanded}
-                className={`group/tools relative w-full overflow-hidden rounded-2xl border text-left transition-all duration-500 ${
-                  toolsExpanded
-                    ? 'border-[#ff8a50]/70 bg-[#ff8a50]/10 p-5 shadow-[0_0_28px_rgba(255,138,80,0.2)]'
-                    : 'border-white/10 bg-white/[0.03] px-4 py-3 hover:border-[#ff8a50]/50 hover:bg-[#ff8a50]/[0.06]'
-                }`}
-              >
-                <motion.span
-                  animate={{ x: toolsExpanded ? 0 : [0, 12, 0] }}
-                  transition={{ duration: 2.4, repeat: toolsExpanded ? 0 : Infinity, ease: 'easeInOut' }}
-                  className="flex items-center justify-between text-xs font-mono text-orange-200"
-                >
-                  <span>{toolsExpanded ? 'tap to collapse' : 'tap to expand'}</span>
-                  <span className="text-[#ff8a50]">{toolsExpanded ? '−' : '+'}</span>
-                </motion.span>
-                <motion.ul
-                  animate={{ height: toolsExpanded ? 'auto' : 0, opacity: toolsExpanded ? 1 : 0 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="pt-4 space-y-2.5">
-                    {group.items.map((item, itemIndex) => (
-                      <motion.li
-                        key={item}
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={toolsExpanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
-                        transition={{ delay: toolsExpanded ? itemIndex * 0.07 : 0 }}
-                        className="flex items-center justify-between text-sm text-slate-200"
-                      >
-                        <span className="font-sans tracking-wide">{item}</span>
-                        <span className="h-px flex-1 mx-3 bg-gradient-to-r from-[#ff8a50]/60 to-transparent" />
-                      </motion.li>
-                    ))}
-                  </div>
-                </motion.ul>
-              </button>
-            ) : (
-            <ul className="space-y-2.5">
-              {group.items.map((item) => (
-                <li
-                  key={item}
-                  className="group flex items-center justify-between text-sm text-slate-300 hover:text-white transition-all duration-200 hover:-translate-y-[2px] cursor-default py-1"
-                >
-                  <span className="font-sans font-normal tracking-wide group-hover:text-orange-200 transition-colors">
-                    {item}
-                  </span>
-                  <span className="w-1 h-1 bg-white/20 group-hover:bg-[#ff8a50] transition-colors rounded-none" />
-                </li>
-              ))}
-            </ul>
-            )}
           </motion.div>
-        ))}
-      </div>
+        );
+      }))}
+    </div>
 
-      {/* Small annotation beneath tools (Rule 07 & 10) */}
-      <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-slate-500">
-        <p>/* tools are instruments; understanding first principles is what endures */</p>
-        <span className="text-slate-500">environment: Linux / macOS · editor: Neovim / VS Code</span>
-      </div>
-    </section>
-  );
-};
+    <p className="relative mt-24 text-center text-xs font-mono text-slate-500">/* individual tools, connected as one system */</p>
+  </section>
+);
