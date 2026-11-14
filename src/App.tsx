@@ -72,6 +72,24 @@ export function App() {
       {/* Subtle Analog Texture Grain Overlay */}
       <div className="noise-overlay" aria-hidden="true" />
 
+      {/* Ambient Orangish Essence: Soft spray of fully-blurred warm shades across the whole viewport */}
+      <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden" aria-hidden="true">
+        {/* Top-Left Soft Amber Spray (Hero area) */}
+        <div className="absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-gradient-to-br from-[#ff8a50]/14 to-[#ff6600]/04 blur-[140px] will-change-transform" />
+
+        {/* Top-Right Warm Light Shade */}
+        <div className="absolute top-[12vh] -right-28 w-[520px] h-[520px] rounded-full bg-gradient-to-bl from-[#ffa35c]/10 to-transparent blur-[160px] will-change-transform" />
+
+        {/* Center Midfield Ambient Glow (Projects & Carousel area) */}
+        <div className="absolute top-[45vh] left-[10vw] w-[680px] h-[560px] rounded-full bg-gradient-to-r from-[#ff8a50]/08 via-[#ff7830]/06 to-transparent blur-[180px] will-change-transform" />
+
+        {/* Lower Left Subtle Spray (Tools / About area) */}
+        <div className="absolute bottom-[25vh] -left-28 w-[580px] h-[580px] rounded-full bg-gradient-to-tr from-[#ff8a50]/10 to-transparent blur-[160px] will-change-transform" />
+
+        {/* Bottom Right Warm Glow (Contact area) */}
+        <div className="absolute -bottom-28 -right-24 w-[640px] h-[640px] rounded-full bg-gradient-to-tl from-[#ff8a50]/14 via-[#ff7020]/05 to-transparent blur-[170px] will-change-transform" />
+      </div>
+
       {/* Front Page: minimal top-right typewriter */}
       <LeftSignatureBar />
 

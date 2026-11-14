@@ -6,19 +6,10 @@ const hexClip = 'polygon(25% 3%, 75% 3%, 98% 50%, 75% 97%, 25% 97%, 2% 50%)';
 
 export const Tools: React.FC = () => (
   <section id="tools" className="relative py-28 sm:py-36 px-6 sm:px-12 md:px-16 max-w-7xl mx-auto z-20 overflow-hidden">
-    <div className="absolute inset-x-0 top-1/4 h-96 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.09),transparent_70%)] pointer-events-none" />
-
-    <div className="relative mb-16 sm:mb-20 text-center max-w-2xl mx-auto">
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#38bdf8]" />
-        <span className="w-1.5 h-1.5 bg-[#ff8a50] shadow-[0_0_8px_#ff8a50]" />
-        <span className="text-xs font-mono tracking-widest text-[#ff8a50] uppercase">02 / TOOLKIT</span>
-        <span className="w-1.5 h-1.5 bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" />
-        <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#38bdf8]" />
-      </div>
-      <h2 className="font-['Chakra_Petch'] text-4xl sm:text-6xl font-semibold tracking-[-0.04em] text-white leading-none">Tools in my stack.</h2>
-      <p className="mt-4 text-sm font-mono text-slate-400">Hover or tap a tile to bring the puzzle to life.</p>
-    </div>
+    {/* Ambient Orangish Spray */}
+    <div className="absolute inset-x-0 top-1/4 h-96 bg-[radial-gradient(ellipse_at_center,rgba(255,138,80,0.11),transparent_70%)] blur-[110px] pointer-events-none" aria-hidden="true" />
+    <div className="absolute right-0 top-1/3 w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(255,150,70,0.08),transparent_70%)] blur-[140px] pointer-events-none" aria-hidden="true" />
+    <div className="absolute inset-x-0 top-1/4 h-96 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.06),transparent_70%)] pointer-events-none" />
 
     <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-2 gap-y-[-12px] sm:gap-x-4">
       {TOOL_GROUPS.flatMap((group, groupIndex) => group.items.map((item, itemIndex) => {

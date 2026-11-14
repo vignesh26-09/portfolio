@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#0f1f38" />
+      <stop offset="60%" stop-color="#070c17" />
+      <stop offset="100%" stop-color="#03060c" />
+    </radialGradient>
+    <linearGradient id="coral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9a7b" />
+      <stop offset="100%" stop-color="#ff6b4a" />
+    </linearGradient>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg)" />
+  <rect width="500" height="500" fill="url(#grid)" />
+  
+  <!-- Outer border & corner accents -->
+  <rect x="15" y="15" width="470" height="470" rx="16" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+  <path d="M 15 35 L 35 15 M 485 35 L 465 15 M 15 465 L 35 485 M 485 465 L 465 485" stroke="#ff8a50" stroke-width="2" />
+  
+  <!-- Top badge bar -->
+  <rect x="35" y="35" width="430" height="40" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+  <circle cx="55" cy="55" r="4" fill="#ff8a50" />
+  <text x="68" y="59" fill="#ff9a7b" font-family="'Chakra Petch', monospace" font-size="12" font-weight="600" letter-spacing="2">PROJECT // 01</text>
+  <text x="445" y="59" text-anchor="end" fill="rgba(255,255,255,0.4)" font-family="monospace" font-size="11">BUILT 2026</text>
+
+  <!-- Central Graphic: Medical Telemetry & Hospital Database Nodes -->
+  <g transform="translate(0, 30)">
+    <!-- Circuit rings -->
+    <circle cx="250" cy="180" r="85" fill="none" stroke="rgba(255,138,80,0.15)" stroke-width="1" stroke-dasharray="4 6" />
+    <circle cx="250" cy="180" r="60" fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="1.5" />
+    <circle cx="250" cy="180" r="38" fill="rgba(255,138,80,0.08)" stroke="#ff8a50" stroke-width="1.5" />
+    
+    <!-- Cross icon -->
+    <path d="M 245 163 h 10 v 12 h 12 v 10 h -12 v 12 h -10 v -12 h -12 v -10 h 12 z" fill="#ff9a7b" />
+    
+    <!-- Pulse Waveform -->
+    <path d="M 70 215 L 170 215 L 185 200 L 200 235 L 215 175 L 230 250 L 245 200 L 260 215 L 430 215" fill="none" stroke="url(#coral)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Data points -->
+    <circle cx="170" cy="215" r="3" fill="#38bdf8" />
+    <circle cx="215" cy="175" r="4" fill="#ff8a50" />
+    <circle cx="230" cy="250" r="3" fill="#ff9a7b" />
+    <circle cx="260" cy="215" r="3" fill="#38bdf8" />
+  </g>
+
+  <!-- Typography & Tags -->
+  <text x="45" y="330" fill="#ffffff" font-family="'Chakra Petch', sans-serif" font-size="34" font-weight="700" letter-spacing="-1">CareLink</text>
+  <text x="45" y="358" fill="#ff9a7b" font-family="'Chakra Petch', monospace" font-size="12" font-weight="600" letter-spacing="2">HEALTHCARE MANAGEMENT PLATFORM</text>
+  
+  <text x="45" y="390" fill="#94a3b8" font-family="sans-serif" font-size="13" width="410">Centralized hospital operations, modular workflow structure,</text>
+  <text x="45" y="410" fill="#94a3b8" font-family="sans-serif" font-size="13">and secure health data records architecture.</text>
+
+  <!-- Tech tags -->
+  <g transform="translate(45, 435)">
+    <rect x="0" y="0" width="55" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="27" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">Java</text>
+    
+    <rect x="63" y="0" width="95" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="110" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">Spring Boot</text>
+
+    <rect x="166" y="0" width="85" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="208" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">PostgreSQL</text>
+  </g>
+</svg>

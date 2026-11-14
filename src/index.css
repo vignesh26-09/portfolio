@@ -97,3 +97,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
+/* Continuous Edge-to-Edge Left to Right Scroll */
+@keyframes trackScrollRight {
+  0% {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-scroll-right {
+  display: flex;
+  width: max-content;
+  animation: trackScrollRight 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-right.is-paused {
+  animation-play-state: paused;
+}
+

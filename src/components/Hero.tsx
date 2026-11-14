@@ -1,95 +1,131 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { SocialLinks } from './SocialLinks';
+import TechText from './TechText';
 
 interface HeroProps {
   onExploreWork: () => void;
   onAboutClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   const { scrollY } = useScroll();
 
-  // Cinematic Zoom-In & Fade Out on scroll (User request: zoom in on scroll down)
-  const heroSlideY = useTransform(scrollY, [0, 480], [0, -40]);
-  const heroScale = useTransform(scrollY, [0, 500], [1.0, 1.18]);
+  // Cinematic Zoom-In & Fade Out on scroll
+  const heroSlideY = useTransform(scrollY, [0, 480], [0, -30]);
+  const heroScale = useTransform(scrollY, [0, 500], [1.0, 1.15]);
   const heroOpacity = useTransform(scrollY, [0, 360], [1, 0]);
-  const indicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col justify-end px-6 sm:px-10 md:px-12 lg:px-16 pb-12 sm:pb-16 pt-24 z-20 pointer-events-none">
+    <div className="relative min-h-screen w-full flex flex-col justify-center items-center px-6 sm:px-12 md:px-16 pt-8 pb-10 sm:pt-12 sm:pb-14 z-20 pointer-events-none">
       <motion.div
         style={{ y: heroSlideY, scale: heroScale, opacity: heroOpacity }}
-        className="w-full max-w-xl md:max-w-2xl pointer-events-auto origin-bottom-left"
+        className="w-full max-w-4xl pointer-events-auto flex flex-col items-start justify-center origin-center"
       >
-        {/* Main Headline */}
+        {/* Hello Greeting */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-['Chakra_Petch'] text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] text-white leading-[0.98] mb-6"
+          transition={{ duration: 0.65, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+          className="font-['Chakra_Petch'] text-6xl sm:text-8xl lg:text-9xl font-extrabold tracking-tight text-white leading-none mb-2"
         >
-          Designing <br />
-          for a{' '}
-          <span className="bg-gradient-to-r from-[#ff9a7b] via-[#ff886c] to-[#f87171] bg-clip-text text-transparent">
-            brighter
-          </span>{' '}
-          <br className="hidden sm:inline" />
-          tomorrow.
+          Hello
         </motion.h1>
 
-        {/* Human Personal Description */}
+        {/* I'm + Roles column */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-6 sm:gap-9 mb-2.5"
+        >
+          <span className="font-['Chakra_Petch'] text-6xl sm:text-8xl lg:text-9xl font-extrabold tracking-tight text-white leading-none">
+            I'm
+          </span>
+          <div className="flex flex-col justify-center text-slate-300 font-['Chakra_Petch'] leading-tight border-l-3 sm:border-l-4 border-[#ff8a50] pl-4 sm:pl-5 py-0.5">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-wide">
+              Software Engineer
+            </span>
+            <span className="text-sm sm:text-base lg:text-lg font-medium text-slate-400 font-mono tracking-wider mt-0.5">
+              Fullstack Developer
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Name with TechText Geometric Blueprint Animation on Hover (Hint removed) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+          className="relative group/name cursor-pointer mb-3"
+        >
+          <div className="h-[80px] sm:h-[105px] w-[350px] sm:w-[500px] relative select-none">
+            <TechText
+              text="Vignesh S"
+              fontFamily="'Chakra Petch', sans-serif"
+              fontWeight={700}
+              fontSize={92}
+              letterSpacing={-0.03}
+              color="#ffffff"
+              accentColor="#ff8a50"
+              align="left"
+              reveal="letter"
+              dashLength={4}
+              dashGap={2}
+              specks={14}
+              intro="none"
+              clickKick
+              guides={false}
+              reach={130}
+              softness={0.7}
+              lineStyle="dashed"
+              strokeWidth={2}
+              speed={1}
+              bounce={0.4}
+              selection
+              labels
+              draggable
+              sweep={false}
+            />
+          </div>
+        </motion.div>
+
+        {/* Clean Human Personal Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="font-['Chakra_Petch'] text-base sm:text-lg text-slate-200/90 leading-relaxed font-medium max-w-[520px] mb-8"
+          transition={{ duration: 0.65, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
+          className="font-['Chakra_Petch'] text-lg sm:text-xl lg:text-2xl text-slate-200/95 leading-relaxed font-normal max-w-2xl mb-5"
         >
-          I'm <strong className="text-white font-medium">Vignesh S</strong>. I build things to understand how they work — experimenting with software, interfaces, and systems with care for how they feel.
+          I build things to understand how they work — experimenting with software, interfaces, and systems with care for how they feel.
         </motion.p>
 
-        {/* Quiet CTA Actions */}
+        {/* Primary CTA Action */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center gap-3.5 mb-8"
+          transition={{ duration: 0.65, delay: 0.52, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-5"
         >
           <button
             onClick={onExploreWork}
-            className="quiet-button-primary inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wide cursor-pointer group"
+            className="quiet-button-primary inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm sm:text-base font-semibold tracking-wide cursor-pointer group shadow-lg hover:shadow-[#ff8a50]/20 transition-all"
           >
-            <span>Explore Work</span>
-            <ArrowDown className="w-3.5 h-3.5 text-slate-900 group-hover:translate-y-0.5 transition-transform duration-300" />
-          </button>
-
-          <button
-            onClick={onAboutClick}
-            className="quiet-button-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-medium tracking-wide cursor-pointer group"
-          >
-            <span>A Little About Me</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+            <span>Explore Projects</span>
+            <ArrowDown className="w-4 h-4 text-slate-900 group-hover:translate-y-1 transition-transform duration-300" />
           </button>
         </motion.div>
 
-        {/* Quiet Social Links */}
+        {/* Prominent Social Links - Lifted up and fully visible */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.75 }}
+          transition={{ duration: 0.65, delay: 0.62 }}
+          className="w-full"
         >
           <SocialLinks />
         </motion.div>
-      </motion.div>
-
-      {/* Subtle Scroll Hint */}
-      <motion.div
-        style={{ opacity: indicatorOpacity }}
-        className="absolute bottom-6 right-6 sm:right-12 hidden sm:flex items-center gap-2 text-[11px] font-mono text-slate-400/60 pointer-events-none select-none"
-      >
-        <span className="w-1 h-1 bg-[#ff8a50]/70 rounded-none inline-block animate-pulse" />
-        <span>scroll to enter cinema ↓</span>
       </motion.div>
     </div>
   );

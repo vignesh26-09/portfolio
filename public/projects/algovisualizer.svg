@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#0f2420" />
+      <stop offset="60%" stop-color="#06120f" />
+      <stop offset="100%" stop-color="#020706" />
+    </radialGradient>
+    <linearGradient id="emeraldCoral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#ff8a50" />
+    </linearGradient>
+    <pattern id="grid4" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg4)" />
+  <rect width="500" height="500" fill="url(#grid4)" />
+  
+  <rect x="15" y="15" width="470" height="470" rx="16" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+  <path d="M 15 35 L 35 15 M 485 35 L 465 15 M 15 465 L 35 485 M 485 465 L 465 485" stroke="#34d399" stroke-width="2" />
+  
+  <rect x="35" y="35" width="430" height="40" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+  <circle cx="55" cy="55" r="4" fill="#34d399" />
+  <text x="68" y="59" fill="#34d399" font-family="'Chakra Petch', monospace" font-size="12" font-weight="600" letter-spacing="2">PROJECT // 04</text>
+  <text x="445" y="59" text-anchor="end" fill="rgba(255,255,255,0.4)" font-family="monospace" font-size="11">SIMULATION</text>
+
+  <!-- Central Graphic: Graph Traversal Dijkstra Simulation -->
+  <g transform="translate(45, 105)">
+    <rect x="0" y="0" width="410" height="175" rx="8" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.1)" />
+    
+    <!-- Edges -->
+    <line x1="60" y1="90" x2="160" y2="45" stroke="#34d399" stroke-width="2.5" />
+    <line x1="60" y1="90" x2="180" y2="135" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <line x1="160" y1="45" x2="280" y2="60" stroke="#34d399" stroke-width="2.5" />
+    <line x1="180" y1="135" x2="350" y2="135" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <line x1="280" y1="60" x2="350" y2="135" stroke="#ff8a50" stroke-width="2.5" />
+
+    <!-- Edge weights -->
+    <text x="105" y="60" fill="#34d399" font-family="monospace" font-size="10">w:2</text>
+    <text x="215" y="45" fill="#34d399" font-family="monospace" font-size="10">w:3</text>
+    <text x="325" y="90" fill="#ff9a7b" font-family="monospace" font-size="10">w:1</text>
+    <text x="110" y="125" fill="#64748b" font-family="monospace" font-size="10">w:6</text>
+
+    <!-- Nodes -->
+    <circle cx="60" cy="90" r="18" fill="#061a15" stroke="#34d399" stroke-width="2" />
+    <text x="60" y="94" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">Start</text>
+
+    <circle cx="160" cy="45" r="15" fill="#061a15" stroke="#34d399" stroke-width="2" />
+    <text x="160" y="49" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">B</text>
+
+    <circle cx="180" cy="135" r="15" fill="#061a15" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+    <text x="180" y="139" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">C</text>
+
+    <circle cx="280" cy="60" r="15" fill="#061a15" stroke="#34d399" stroke-width="2" />
+    <text x="280" y="64" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">D</text>
+
+    <circle cx="350" cy="135" r="18" fill="rgba(255,138,80,0.15)" stroke="#ff8a50" stroke-width="2.5" />
+    <text x="350" y="139" text-anchor="middle" fill="#ff9a7b" font-family="monospace" font-size="11" font-weight="bold">Target</text>
+  </g>
+
+  <text x="45" y="330" fill="#ffffff" font-family="'Chakra Petch', sans-serif" font-size="34" font-weight="700" letter-spacing="-1">AlgoVisualizer</text>
+  <text x="45" y="358" fill="#34d399" font-family="'Chakra Petch', monospace" font-size="12" font-weight="600" letter-spacing="2">GRAPH TRAVERSAL &amp; HEURISTICS</text>
+  
+  <text x="45" y="390" fill="#94a3b8" font-family="sans-serif" font-size="13">Interactive 2D graph traversal simulator visualizing Dijkstra,</text>
+  <text x="45" y="410" fill="#94a3b8" font-family="sans-serif" font-size="13">A*, and BFS/DFS with real-time step execution metrics.</text>
+
+  <g transform="translate(45, 435)">
+    <rect x="0" y="0" width="95" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="47" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">Graph Theory</text>
+    
+    <rect x="103" y="0" width="65" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="135" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">Canvas</text>
+
+    <rect x="176" y="0" width="75" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="213" y="16" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="11">Dijkstra</text>
+  </g>
+</svg>

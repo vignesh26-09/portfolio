@@ -24,23 +24,12 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="relative py-28 sm:py-36 px-6 sm:px-12 md:px-16 max-w-5xl mx-auto z-20">
-      {/* Section Header (Rule 17) */}
-      <div className="mb-14 sm:mb-18 text-left">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-1.5 h-1.5 bg-[#ff8a50] rounded-none inline-block shadow-[0_0_6px_#ff8a50]" />
-          <span className="text-xs font-mono tracking-widest text-[#ff8a50] uppercase">
-            04 / CONTACT
-          </span>
-          <span className="h-[1px] w-12 bg-white/10" />
-        </div>
+      {/* Ambient Orangish Spray */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(255,138,80,0.12),transparent_70%)] blur-[150px] pointer-events-none" aria-hidden="true" />
 
-        <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-4">
-          Have something interesting in mind?
-        </h2>
-
-        <p className="text-base sm:text-lg text-slate-300/90 leading-relaxed max-w-2xl font-sans">
-          I'm always happy to talk about ideas, experiments, collaborations or things that probably shouldn't work but might.
-        </p>
+      <p className="text-base sm:text-lg text-slate-300/90 leading-relaxed max-w-2xl font-sans mb-8">
+        I'm always happy to talk about ideas, experiments, collaborations or things that probably shouldn't work but might.
+      </p>
 
         {/* Direct Email Callout (Rule 17) */}
         <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-mono">
@@ -65,7 +54,6 @@ export const Contact: React.FC = () => {
             </button>
           </div>
         </div>
-      </div>
 
       {/* Minimalist Conversation Form (Rule 17: Thin borders, large spacing, no corporate card) */}
       <div className="pt-8 border-t border-white/[0.08]">

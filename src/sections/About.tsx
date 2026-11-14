@@ -4,21 +4,9 @@ import { motion } from 'framer-motion';
 export const About: React.FC = () => {
   return (
     <section id="about" className="relative py-28 sm:py-36 px-6 sm:px-12 md:px-16 max-w-6xl mx-auto z-20">
-      {/* Section Header */}
-      <div className="mb-16 sm:mb-20">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-1.5 h-1.5 bg-[#ff8a50] rounded-none inline-block shadow-[0_0_6px_#ff8a50]" />
-          <span className="text-xs font-mono tracking-widest text-[#ff8a50] uppercase">
-            03 / ABOUT
-          </span>
-          <span className="h-[1px] w-12 bg-white/10" />
-        </div>
-
-        <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.1]">
-          A little about how I work.
-        </h2>
-      </div>
-
+      {/* Ambient Orangish Spray */}
+      <div className="absolute top-1/3 -right-28 w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(255,138,80,0.10),transparent_70%)] blur-[140px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-10 -left-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(255,110,40,0.08),transparent_70%)] blur-[130px] pointer-events-none" aria-hidden="true" />
       {/* Editorial Letter Composition with Controlled Asymmetry (Rule 09 & 11) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Letter Text Column (Rule 09) */}
